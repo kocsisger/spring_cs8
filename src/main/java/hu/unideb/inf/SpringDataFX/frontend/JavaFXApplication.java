@@ -10,21 +10,19 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 
 public class JavaFXApplication extends Application {
-    private ConfigurableApplicationContext ctx;
+    FXMLLoader loader;
 
     @Override
     public void start(Stage stage) throws Exception {
-        FXMLLoader loader
-                = new FXMLLoader(getClass().getResource("/fxml/MainPage.fxml"));
+        loader = new FXMLLoader(getClass().getResource("/fxml/MainPage.fxml"));
         Parent root = loader.load();
         stage.setScene(new Scene(root));
         stage.show();
-        ctx = SpringApplication.run(SpringDataFxApplication.class);
     }
 
     @Override
     public void stop() throws Exception {
-        ctx.close();
+        ((MainPageController)loader.getController()).closeBackend();
         super.stop();
     }
 }
