@@ -30,5 +30,6 @@ public class SpringDataFxApplication implements CommandLineRunner {
 				.build();
 
 		personRepository.save(p);
+		personRepository.save(p2);
 	}
 }
