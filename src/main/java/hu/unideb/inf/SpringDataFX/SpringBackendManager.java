@@ -21,6 +21,6 @@ public class SpringBackendManager implements BackendManager {
 
     @Override
     public void print() {
-
+        ctx.getBean(SpringDataFxApplication.class).print();
     }
 }
